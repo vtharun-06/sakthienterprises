@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sakthienterprises.com
+
+# Sitemaps
+Sitemap: https://sakthienterprises.com/sitemap.xml

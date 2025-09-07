@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import Image from "next/image";
 
 const clients = [
   { logo: "/client1.png", name: "Client 1" },
@@ -34,9 +35,11 @@ export default function ClientsSection() {
             {clients.map((client, idx) => (
               <SwiperSlide key={idx}>
                 <div className="flex justify-center items-center p-4 bg-white rounded-lg shadow-sm">
-                  <img
+                  <Image
                     src={client.logo}
                     alt={client.name}
+                    width={300}
+                    height={300}
                     className="max-h-16 object-contain"
                   />
                 </div>
@@ -52,9 +55,11 @@ export default function ClientsSection() {
               key={idx}
               className="flex justify-center items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition"
             >
-              <img
+              <Image
                 src={client.logo}
                 alt={client.name}
+                width={300}
+                height={300}
                 className="max-h-16 object-contain"
               />
             </div>

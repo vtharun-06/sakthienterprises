@@ -30,10 +30,9 @@ export default function AboutPage() {
               Who We Are
             </h2>
             <p className="text-gray-700 mb-6 leading-relaxed">
-              Established in 1999, we are ISO-certified and specialize in the
+              Established in 1990s, we are specialize in the
               design, manufacturing, and supply of high-quality scaffolding and
               formwork systems. Our products adhere to international standards
-              including BS, EN, DIN, ASTM, and IS.
             </p>
 
             <h2 className="text-2xl font-semibold mb-4 text-yellow-600">
@@ -52,10 +51,10 @@ export default function AboutPage() {
               Why Choose Us?
             </h2>
             <ul className="space-y-3 text-gray-700">
-              <li>✔️ ISO 9001:2015 Certified Company</li>
+              {/* <li>✔️ ISO 9001:2015 Certified Company</li> */}
               <li>✔️ 20+ Years of Industry Experience</li>
-              <li>✔️ Tested at IIT Madras & International Labs</li>
-              <li>✔️ 1400+ Successful Projects Executed</li>
+              {/* <li>✔️ Tested at IIT Madras & International Labs</li> */}
+              <li>✔️ 500+ Successful Projects Executed</li>
               <li>✔️ Customizable & Flexible System Options</li>
             </ul>
           </div>

@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://yourwebsite.com",
+  siteUrl: "https://sakthienterprises.com",
   generateRobotsTxt: true,
   sitemapSize: 7000,
 };

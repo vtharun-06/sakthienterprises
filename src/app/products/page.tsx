@@ -47,8 +47,8 @@ export default function ProductsPage() {
     <main className="py-16 bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4">
         {/* Heading */}
-        <h1 className="text-4xl font-bold text-center mb-4">
-          Our <span className="text-yellow-400">Products</span>
+        <h1 className="text-4xl font-bold text-center mb-4 text-yellow-600">
+          Our Products
         </h1>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
           Explore our wide range of scaffolding and formwork systems designed to
@@ -81,7 +81,7 @@ export default function ProductsPage() {
                 <p className="text-gray-600 flex-1">{product.desc}</p>
                 <Link
                   href={`/products/${product.slug}`}
-                  className="mt-4 inline-block bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-400 transition"
+                  className="mt-4 inline-block bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-400 transition text-white"
                 >
                   View Details
                 </Link>

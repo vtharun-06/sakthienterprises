@@ -3,6 +3,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { use } from "react";
 
 // Same products array (could be imported from a shared file)
 const products = [
@@ -59,9 +60,10 @@ const products = [
 export default function ProductDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const product = products.find((p) => p.slug === params.slug);
+  const { slug } = use(params);
+  const product = products.find((p) => p.slug === slug);
 
   if (!product) return notFound();
 

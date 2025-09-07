@@ -5,41 +5,10 @@ import HeroSection from "@/components/HeroSection";
 import ProductCarousel from "@/components/ProductCarousel";
 import CompletedProjects from "@/components/Projects";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Image from "next/image";
-import Script from "next/script";
 
 export default function Home() {
   return (
     <>
-      <Script
-        id="ld-json"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            name: "[Your Company Name]",
-            image: "https://yourwebsite.com/logo.png",
-            "@id": "https://yourwebsite.com",
-            url: "https://yourwebsite.com",
-            telephone: "+91-9840879504",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Your Street Address",
-              addressLocality: "Chennai",
-              addressRegion: "TN",
-              postalCode: "600XXX",
-              addressCountry: "IN",
-            },
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: "13.0827",
-              longitude: "80.2707",
-            },
-            openingHours: "Mo-Sa 09:00-18:00",
-          }),
-        }}
-      />
       <main className="flex flex-col">
         {/* Hero Section */}
         <HeroSection />
