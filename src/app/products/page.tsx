@@ -34,12 +34,12 @@ const products = [
     image: "/scaffolding-safety-img.jpg",
     desc: "Durable and reusable formwork panels designed for fast and accurate concrete construction.",
   },
-  {
-    title: "Industrial Access",
-    slug: "industrial-access",
-    image: "/scaffolding-safety-img.jpg",
-    desc: "Specialized scaffolding solutions for refineries, power plants, and heavy industrial projects.",
-  },
+  // {
+  //   title: "Industrial Access",
+  //   slug: "industrial-access",
+  //   image: "/scaffolding-safety-img.jpg",
+  //   desc: "Specialized scaffolding solutions for refineries, power plants, and heavy industrial projects.",
+  // },
 ];
 
 export default function ProductsPage() {
