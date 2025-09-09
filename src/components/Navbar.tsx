@@ -38,7 +38,7 @@ export default function Navbar() {
             <Image
               src="/Logo/sakthitenterprises.png"
               alt="Sakthi Enterprises"
-              width={scrolled ? 80 : 90}
+              width={scrolled ? 70 : 80}
               height={50}
               className="object-contain transition-all duration-300"
               priority
