@@ -1,137 +1,97 @@
-// src/components/Navbar.tsx
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { FiMenu, FiX, FiArrowUp } from "react-icons/fi";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
+import { SITE } from "@/lib/site";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/products", label: "What we rent" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50); // shrink navbar
-      setShowScrollTop(window.scrollY > 200); // show button after 200px
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
-    <>
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-yellow-700 shadow-lg py-2"
-            : "bg-yellow-600 shadow-md py-4"
-        }`}
-      >
-        <div className="container mx-auto flex justify-between items-center px-6 transition-all duration-300">
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/Logo/sakthitenterprises.png"
-              alt="Sakthi Enterprises"
-              width={scrolled ? 70 : 80}
-              height={50}
-              className="object-contain transition-all duration-300"
-              priority
-            />
-          </Link>
+    <header className="sticky top-0 z-50 border-b border-ink/10 bg-white">
+      <div className="mx-auto flex max-w-6xl items-stretch justify-between px-4 md:px-6">
+        <Link href="/" className="flex items-center py-2" aria-label="Sakthi Enterprises home">
+          <Image
+            src="/Logo/sakthitenterprises.png"
+            alt="Sakthi Enterprises"
+            width={80}
+            height={50}
+            className="h-10 w-auto object-contain"
+            priority
+          />
+        </Link>
 
-          {/* Desktop Menu */}
-          <ul className="hidden md:flex gap-8 font-medium">
-            <li>
+        <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
+          {links.map((l) => {
+            const active = pathname === l.href;
+            return (
               <Link
-                href="/"
-                className="text-white hover:text-gray-100 transition duration-200"
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "page" : undefined}
+                className={`border-b-4 py-4 font-medium ${
+                  active
+                    ? "border-safety text-ink"
+                    : "border-transparent text-steel hover:text-ink"
+                }`}
               >
-                Home
+                {l.label}
               </Link>
-            </li>
-            <li>
-              <Link
-                href="/products"
-                className="text-white hover:text-gray-100 transition duration-200"
-              >
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className="text-white hover:text-gray-100 transition duration-200"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                className="text-white hover:text-gray-100 transition duration-200"
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
+            );
+          })}
+        </nav>
 
-          {/* Mobile Menu Button */}
+        <div className="flex items-stretch">
+          <a
+            href={SITE.phoneHref}
+            className="hidden items-center bg-safety px-6 font-semibold text-ink hover:brightness-95 md:flex"
+          >
+            Call {SITE.phone}
+          </a>
           <button
-            className="md:hidden text-white text-2xl"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle Menu"
+            type="button"
+            className="flex h-14 w-14 items-center justify-center text-2xl md:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}
           >
             {open ? <FiX /> : <FiMenu />}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Dropdown */}
-        <div
-          className={`md:hidden bg-yellow-600 shadow-lg transition-all duration-300 ease-in-out ${
-            open ? "max-h-60 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-          }`}
-        >
-          <ul className="flex flex-col items-center py-4 gap-4 font-medium text-white">
-            <li>
-              <Link href="/" onClick={() => setOpen(false)}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/products" onClick={() => setOpen(false)}>
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" onClick={() => setOpen(false)}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" onClick={() => setOpen(false)}>
-                Contact
-              </Link>
-            </li>
+      {open && (
+        <nav id="mobile-menu" aria-label="Mobile" className="border-t border-ink/10 bg-white md:hidden">
+          <ul>
+            {links.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={pathname === l.href ? "page" : undefined}
+                  className={`block border-l-4 px-5 py-4 font-medium ${
+                    pathname === l.href ? "border-safety bg-paper" : "border-transparent"
+                  }`}
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
           </ul>
-        </div>
-      </nav>
-
-      {/* Scroll To Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-yellow-500 text-black p-3 rounded-full shadow-lg hover:bg-yellow-600 transition z-50"
-          aria-label="Scroll to top"
-        >
-          <FiArrowUp className="text-xl" />
-        </button>
+        </nav>
       )}
-    </>
+    </header>
   );
 }

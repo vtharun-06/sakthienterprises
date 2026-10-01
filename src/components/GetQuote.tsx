@@ -1,31 +1,23 @@
-"use client";
-
-import Link from "next/link";
+import { SITE } from "@/lib/site";
 
 export default function FinalCTA() {
   return (
-    <section className="relative bg-gray-100 py-16 overflow-hidden">
-      {/* Decorative Background Pattern */}
-      <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10 pointer-events-none" />
-
-      <div className="container mx-auto px-6 text-center relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-yellow-600 mb-6 leading-snug">
-          Ready to Start Your Next Project?
-        </h2>
-        <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-          Sakthi Enterprises provides trusted, safe, and high-quality
-          scaffolding solutions tailored to your construction needs.
-          <span className="text-yellow-600 font-semibold">
-            {" "}
-            Let’s build something together.
-          </span>
-        </p>
-        <Link
-          href="/contact"
-          className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition"
-        >
-          Get a Quote
-        </Link>
+    <section className="bg-safety text-ink">
+      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 py-14 md:flex-row md:items-center md:px-6">
+        <div>
+          <h2 className="text-4xl font-bold md:text-5xl">Need scaffolding for a site?</h2>
+          <p className="mt-2 max-w-md">
+            Tell us the location and dates. We call you back with a quote.
+          </p>
+        </div>
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+          <a href={SITE.whatsappHref} className="bg-ink px-7 py-4 text-center font-semibold text-white hover:bg-steel">
+            WhatsApp us
+          </a>
+          <a href={SITE.phoneHref} className="border-2 border-ink px-7 py-4 text-center font-semibold hover:bg-ink/10">
+            Call {SITE.phone}
+          </a>
+        </div>
       </div>
     </section>
   );

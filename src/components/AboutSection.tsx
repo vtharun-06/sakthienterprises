@@ -1,44 +1,46 @@
-"use client";
-
 import Image from "next/image";
+import Link from "next/link";
+import Blueprint from "./Blueprint";
+import { hasImage } from "@/lib/images";
+import { SITE } from "@/lib/site";
 
 export default function AboutSection() {
+  const photo = hasImage("about.jpg");
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-        {/* Image */}
-        <div className="relative w-full h-72 md:h-96">
-          <Image
-            src="/about-img.jpg"
-            alt="About Sakthi Enterprises"
-            fill
-            className="object-cover rounded-lg shadow-md"
-          />
+    <section className="bg-white py-16 md:py-24">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2 md:px-6">
+        <div>
+          <h2 className="mb-5 text-4xl font-bold md:text-5xl">
+            Family run, on Chennai sites since {SITE.founded}
+          </h2>
+          <p className="mb-4 max-w-prose text-steel">
+            We buy scaffolding material from manufacturers and rent it to
+            contractors. Our own crew erects and dismantles it on your site, so
+            you deal with one team from first call to last pipe.
+          </p>
+          <Link
+            href="/about"
+            className="inline-block border-b-2 border-safety pb-0.5 font-semibold hover:bg-safety/30"
+          >
+            Read our story
+          </Link>
         </div>
 
-        {/* Text Content */}
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            About <span className="text-yellow-400">Sakthi Enterprises</span>
-          </h2>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            With over{" "}
-            <span className="font-semibold text-yellow-400">
-              21 years of experience
-            </span>
-            , Sakthi Enterprises is a trusted name in the scaffolding and
-            formwork industry. We provide safe, reliable, and innovative
-            solutions that meet global standards.
-          </p>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Our in-house team specializes in{" "}
-            <span className="font-semibold text-yellow-400">custom design</span>
-            and manufacturing, ensuring every project is delivered with
-            precision, efficiency, and safety.
-          </p>
-          <button className="bg-yellow-500 text-black px-6 py-3 rounded-lg font-medium hover:bg-yellow-400 transition">
-            Learn More
-          </button>
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-sm">
+          <div className="absolute -bottom-4 -right-4 h-full w-full bg-safety" aria-hidden />
+          <div className="relative h-full w-full overflow-hidden bg-ink">
+            {photo ? (
+              <Image
+                src="/images/about.jpg"
+                alt="Steel scaffolding pipes joined with couplers"
+                fill
+                sizes="(min-width: 768px) 24rem, 90vw"
+                className="object-cover"
+              />
+            ) : (
+              <Blueprint className="h-full w-full p-6 text-plan" bays={2} levels={4} />
+            )}
+          </div>
         </div>
       </div>
     </section>
