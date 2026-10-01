@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
     <footer className="bg-ink py-10 text-white/80">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 md:grid-cols-3 md:px-6">
         <div>
-          <h3 className="mb-3 text-xl font-semibold text-white">{SITE.name}</h3>
+          <Logo tone="light" showTagline={false} className="mb-4" />
           <p>
             Scaffolding rental and erection in Chennai and Tamil Nadu. Family
             business since {SITE.founded}.
