@@ -1,93 +1,45 @@
-"use client";
-
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
+import PipeSpec from "@/components/PipeSpec";
+import { SITE } from "@/lib/site";
 
-const products = [
-  {
-    title: "Cuplock System",
-    slug: "cuplock-system",
-    image: "/scaffolding-safety-img.jpg",
-    desc: "A versatile and easy-to-use modular scaffolding system, widely used in construction projects worldwide.",
-  },
-  {
-    title: "Ringlock System",
-    slug: "ringlock-system",
-    image: "/scaffolding-safety-img.jpg",
-    desc: "Quick to assemble, high load capacity, and ideal for complex structures and industrial applications.",
-  },
-  {
-    title: "H-Frame Scaffolding",
-    slug: "h-frame-scaffolding",
-    image: "/scaffolding-safety-img.jpg",
-    desc: "Reliable and economical scaffolding solution for residential, commercial, and industrial works.",
-  },
-  {
-    title: "Props & Shoring",
-    slug: "props-shoring",
-    image: "/scaffolding-safety-img.jpg",
-    desc: "Adjustable props and shoring systems to provide safe vertical support for formwork and slabs.",
-  },
-  {
-    title: "Formwork Systems",
-    slug: "formwork-systems",
-    image: "/scaffolding-safety-img.jpg",
-    desc: "Durable and reusable formwork panels designed for fast and accurate concrete construction.",
-  },
-  // {
-  //   title: "Industrial Access",
-  //   slug: "industrial-access",
-  //   image: "/scaffolding-safety-img.jpg",
-  //   desc: "Specialized scaffolding solutions for refineries, power plants, and heavy industrial projects.",
-  // },
-];
+export const metadata: Metadata = { title: "What we rent" };
 
 export default function ProductsPage() {
   return (
-    <main className="py-16 bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4">
-        {/* Heading */}
-        <h1 className="text-4xl font-bold text-center mb-4 text-yellow-600">
-          Our Products
-        </h1>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Explore our wide range of scaffolding and formwork systems designed to
-          deliver safety, durability, and efficiency for every construction
-          project.
+    <main className="bg-paper py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <h1 className="mb-4 text-5xl font-bold md:text-6xl">What we rent</h1>
+        <p className="mb-12 max-w-prose text-steel">
+          Call or WhatsApp us with your requirement. We quote after
+          understanding your site.
         </p>
 
-        {/* Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-lg shadow-md hover:shadow-lg transition flex flex-col"
-            >
-              {/* Image */}
-              <div className="relative w-full h-56">
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  fill
-                  className="object-cover rounded-t-lg"
-                />
-              </div>
+        <div className="grid items-start gap-10 md:grid-cols-2">
+          <section aria-labelledby="pipes" className="bg-white p-6 md:p-8">
+            <h2 id="pipes" className="mb-2 text-3xl font-bold">Scaffolding pipes</h2>
+            <p className="mb-6 text-steel">Four lengths: 2 ft, 4 ft, 6 ft and 20 ft.</p>
+            <PipeSpec />
+          </section>
 
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                  {product.title}
-                </h3>
-                <p className="text-gray-600 flex-1">{product.desc}</p>
-                <Link
-                  href={`/products/${product.slug}`}
-                  className="mt-4 inline-block bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-yellow-400 transition text-white"
-                >
-                  View Details
-                </Link>
-              </div>
+          <div className="space-y-6">
+            <section aria-labelledby="shed" className="border-l-4 border-safety bg-white p-6 md:p-8">
+              <h2 id="shed" className="mb-2 text-3xl font-bold">Shed and sheeting</h2>
+              <p className="text-steel">Temporary shed and sheeting work on request.</p>
+            </section>
+            <section aria-labelledby="erect" className="border-l-4 border-safety bg-white p-6 md:p-8">
+              <h2 id="erect" className="mb-2 text-3xl font-bold">Erection and dismantling</h2>
+              <p className="text-steel">Our crew can erect and dismantle on your site.</p>
+            </section>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a href={SITE.whatsappHref} className="bg-safety px-6 py-3 text-center font-semibold hover:brightness-95">
+                WhatsApp for a quote
+              </a>
+              <Link href="/contact" className="border-2 border-ink px-6 py-3 text-center font-semibold hover:bg-ink/5">
+                Send an enquiry
+              </Link>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </main>
