@@ -65,6 +65,7 @@ export default function RootLayout({
             telephone: ["+91-9840062692", "+91-9840879504"],
             email: SITE.email,
             foundingDate: String(SITE.founded),
+            founder: { "@type": "Person", name: "N Venkatesan" },
             address: {
               "@type": "PostalAddress",
               streetAddress: "Kadappa Rd, Subhash Nagar, Lakshmipuram",

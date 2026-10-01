@@ -3,8 +3,13 @@
 export type Founder = { name: string; role: string; note?: string };
 export type Milestone = { year: string; text: string };
 
-// Fill in with real names/roles from the owner, e.g. { name: "...", role: "Founder" }.
-export const founders: Founder[] = [];
+export const founders: Founder[] = [
+  {
+    name: "N Venkatesan",
+    role: "Founder and owner",
+    note: "Started Sakthi Enterprises in 1999 and still runs it himself.",
+  },
+];
 
 // Needs at least 3 real entries to show. Year 1999 is confirmed.
 export const timeline: Milestone[] = [{ year: "1999", text: "Sakthi Enterprises starts in Chennai." }];
@@ -27,6 +32,6 @@ export const promises = [
   },
   {
     title: "Same family, same phone number",
-    text: "The owners answer your calls. You always reach the people responsible.",
+    text: "You speak directly to the owner, N Venkatesan, not a call centre.",
   },
 ];

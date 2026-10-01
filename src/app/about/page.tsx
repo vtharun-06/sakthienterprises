@@ -92,8 +92,8 @@ export default function AboutPage() {
       {founders.length > 0 && (
         <section className="bg-paper py-16 md:py-24">
           <div className="mx-auto max-w-6xl px-4 md:px-6">
-            <h2 className="mb-8 text-4xl font-bold md:text-5xl">Who started it</h2>
-            <ul className="grid gap-6 md:grid-cols-2">
+            <h2 className="mb-8 text-4xl font-bold md:text-5xl">Who runs it</h2>
+            <ul className="grid max-w-2xl gap-6">
               {founders.map((f) => (
                 <li key={f.name} className="border-l-4 border-safety bg-white p-6">
                   <p className="text-2xl font-bold" style={{ fontFamily: "var(--font-heading)" }}>{f.name}</p>
