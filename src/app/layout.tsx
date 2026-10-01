@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Script from "next/script";
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import MobileCta from "@/components/MobileCta";
+import { Analytics } from "@vercel/analytics/next";
 import { SITE } from "@/lib/site";
 
 const body = Barlow({
@@ -35,6 +36,8 @@ export const metadata: Metadata = {
     "scaffolding contractor Tamil Nadu",
     "shed and sheeting Chennai",
   ],
+  alternates: { canonical: "/" },
+  twitter: { card: "summary_large_image" },
   openGraph: {
     title: "Scaffolding on Rent in Chennai | Sakthi Enterprises",
     description:
@@ -75,11 +78,12 @@ export default function RootLayout({
               addressCountry: "IN",
             },
             areaServed: "Tamil Nadu",
+            sameAs: [SITE.googleProfile],
             openingHours: "Mo-Sa 09:00-18:00",
             geo: {
               "@type": "GeoCoordinates",
-              latitude: "13.1333",
-              longitude: "80.1940",
+              latitude: SITE.geo.lat,
+              longitude: SITE.geo.lng,
             },
           }),
         }}
@@ -95,6 +99,7 @@ export default function RootLayout({
         <div id="main">{children}</div>
         <Footer />
         <MobileCta />
+        <Analytics />
       </body>
     </html>
   );
