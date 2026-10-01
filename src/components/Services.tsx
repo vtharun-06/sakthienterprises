@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { SITE } from "@/lib/site";
 import Blueprint from "./Blueprint";
 import { hasImage } from "@/lib/images";
 
@@ -51,6 +53,11 @@ export default function Services() {
             </article>
           ))}
         </div>
+        <p className="mt-8">
+          <Link href={SITE.rentalPath} className="border-b-2 border-safety pb-0.5 font-semibold hover:bg-safety/30">
+            See what we rent and how to get a quote
+          </Link>
+        </p>
       </div>
     </section>
   );

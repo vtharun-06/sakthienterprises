@@ -15,9 +15,11 @@ export default function Footer() {
         <nav aria-label="Footer">
           <h4 className="mb-3 text-lg font-semibold text-white">Pages</h4>
           <ul className="space-y-2">
-            <li><Link href="/products" className="hover:text-white">What we rent</Link></li>
+            <li><Link href={SITE.rentalPath} className="hover:text-white">Scaffolding on rent</Link></li>
             <li><Link href="/about" className="hover:text-white">About</Link></li>
             <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
+            <li><Link href="/privacy" className="hover:text-white">Privacy</Link></li>
+            <li><a href={SITE.googleProfile} className="hover:text-white">Find us on Google</a></li>
           </ul>
         </nav>
         <div>

@@ -9,7 +9,7 @@ import { SITE } from "@/lib/site";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/products", label: "What we rent" },
+  { href: SITE.rentalPath, label: "Scaffolding on rent" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
