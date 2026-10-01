@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "./Logo";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -22,14 +22,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-white">
       <div className="mx-auto flex max-w-6xl items-stretch justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center py-2" aria-label="Sakthi Enterprises home">
-          <Image
-            src="/Logo/sakthitenterprises.png"
-            alt="Sakthi Enterprises"
-            width={80}
-            height={50}
-            className="h-10 w-auto object-contain"
-            priority
-          />
+          <Logo />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
