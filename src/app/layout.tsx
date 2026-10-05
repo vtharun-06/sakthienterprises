@@ -79,7 +79,6 @@ export default function RootLayout({
             },
             areaServed: "Tamil Nadu",
             sameAs: [SITE.googleProfile],
-            openingHours: "Mo-Sa 09:00-18:00",
             geo: {
               "@type": "GeoCoordinates",
               latitude: SITE.geo.lat,

@@ -27,6 +27,6 @@ export const faq = [
   },
   {
     q: "How can I get a quote?",
-    a: "Call or WhatsApp +91 98400 62692, or send the enquiry form on our contact page. We reply and call you back. Our hours are Monday to Saturday, 9:00 am to 6:00 pm.",
+    a: "Call or WhatsApp +91 98400 62692, or send the enquiry form on our contact page. We reply and call you back. We are open 24 hours.",
   },
 ];
