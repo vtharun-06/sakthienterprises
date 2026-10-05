@@ -17,7 +17,7 @@ export const SITE = {
   email: "sakthienterprises1999@gmail.com",
   address:
     "45MV+9J3, Kadappa Rd, Subhash Nagar, Sakthi Nagar, Lakshmipuram, Chennai, Tamil Nadu 600080",
-  hours: "Mon-Sat, 9:00 am - 6:00 pm",
+  hours: "Open 24 hours",
   // Google Business Profile ("SAKTHI ENTERPRISES"). Keep address/name/phone identical to the profile.
   googleProfile: "https://www.google.com/maps?cid=10005080303571878419",
   geo: { lat: "13.1333843", lng: "80.1940493" },

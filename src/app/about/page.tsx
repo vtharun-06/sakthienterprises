@@ -55,7 +55,7 @@ export default function AboutPage() {
               Nadu, and we also take up temporary shed and sheeting work.
             </p>
             <p className="max-w-prose text-steel">
-              Visit us at {SITE.address}. Open {SITE.hours}.
+              Visit us at {SITE.address}. {SITE.hours}.
             </p>
           </div>
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm">
